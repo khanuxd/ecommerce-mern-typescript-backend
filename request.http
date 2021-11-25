@@ -1,0 +1,41 @@
+POST http://localhost:3000/api/v1/products HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "Best Sneaker Collection 5",
+  "description": "Test Product deescription goes here",
+  "category": "Sneakers",
+  "variants": ["red", "black", "blue"],
+  "sizes" : ["41", "42", "45"],
+  "image":"https://source.unsplash.com/1600x900/?sneaker",
+  "price" : 100,
+  "quantity": 99.55
+}
+
+###
+#GET /products
+GET http://localhost:3000/api/v1/products HTTP/1.1
+
+###
+#GET /:productId
+GET http://localhost:3000/api/v1/products/619f69bbbab9a7fd130e4b96 HTTP/1.1
+
+###
+# PUT /:productId
+PUT http://localhost:3000/api/v1/products/619f69bbbab9a7fd130e4b96 HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "Updated v1 - Test Product 2",
+  "description": "Updated v1 - Test Product 2 description",
+  "category": "Updated v1 - testCategory",
+  "variants": ["red", "blue"],
+  "sizes" : ["m", "xl"],
+  "image":"https://source.unsplash.com/1600x900/?phone",
+  "price" : 500,
+  "quantity": 2000
+}
+
+###
+# DELETE /:productId
+DELETE http://localhost:3000/api/v1/products/619f69bbbab9a7fd130e4b96
