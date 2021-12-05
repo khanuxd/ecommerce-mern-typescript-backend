@@ -8,8 +8,10 @@ if (fs.existsSync('.env')) {
   dotenv.config({ path: '.env' })
 }
 
-export const ENVIRONMENT = process.env.NODE_ENV
-const prod = ENVIRONMENT === 'production' // Anything else is treated as 'dev'
+// export const ENVIRONMENT = process.env.NODE_ENV
+// const prod = ENVIRONMENT === 'production' // Anything else is treated as 'dev'
+export const ENVIRONMENT = process.env.NODE_ENV || 'production'
+const prod = ENVIRONMENT
 
 export const JWT_SECRET = process.env['JWT_SECRET'] as string
 export const MONGODB_URI = (
