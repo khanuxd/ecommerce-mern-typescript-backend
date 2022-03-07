@@ -1,10 +1,6 @@
 import User, { UserDocument } from '../models/User.js'
 import { NotFoundError } from '../helpers/apiError'
 
-const newUser = async (user: UserDocument): Promise<UserDocument> => {
-  return user.save()
-}
-
 const findAll = async (): Promise<UserDocument[]> => {
   return User.find().sort({ createdAt: 1 })
 }
@@ -42,4 +38,4 @@ const removeById = async (userId: string): Promise<UserDocument | null> => {
   return foundUser
 }
 
-export default { newUser, findAll, findById, updateById, removeById }
+export default { findAll, findById, updateById, removeById }

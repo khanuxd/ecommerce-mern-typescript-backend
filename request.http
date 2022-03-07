@@ -1,7 +1,7 @@
 # PROUDCT CRUD OPERATION #
 
 # POST /products
-POST http://localhost:3000/api/v1/products HTTP/1.1
+POST http://localhost:3010/api/v1/products HTTP/1.1
 Content-Type: application/json
 
 {
@@ -17,15 +17,15 @@ Content-Type: application/json
 
 ###
 #GET /products
-GET http://localhost:3000/api/v1/products HTTP/1.1
+GET http://localhost:3010/api/v1/products HTTP/1.1
 
 ###
 #GET /:productId
-GET http://localhost:3000/api/v1/products/619f6c058be5d2ff615802f7 HTTP/1.1
+GET http://localhost:3010/api/v1/products/619f6c058be5d2ff615802f7 HTTP/1.1
 
 ###
 # PUT /:productId
-PUT http://localhost:3000/api/v1/products/619f6c058be5d2ff615802f7 HTTP/1.1
+PUT http://localhost:3010/api/v1/products/619f6c058be5d2ff615802f7 HTTP/1.1
 Content-Type: application/json
 
 {
@@ -41,36 +41,43 @@ Content-Type: application/json
 
 ###
 # DELETE /:productId
-DELETE http://localhost:3000/api/v1/products/619f6c058be5d2ff615802f7
+DELETE http://localhost:3010/api/v1/products/619f6c058be5d2ff615802f7
 
 ###
 # USER CRUD OPERATION #
 
-# POST /users/register
-POST http://localhost:3000/api/v1/users/register HTTP/1.1
+# POST /register
+POST http://localhost:3010/api/v1/auth/register HTTP/1.1
 Content-Type: application/json
 
 {
   "name": "Khan Fayjul test",
-  "email": "khan@email.com",
+  "email": "khantest@email.com",
   "password": "123456",
-  "avatar":"https://source.unsplash.com/1600x900/?man",
-  "address": "123 North Street, CA-0000",
-  "isAdmin" : false,
-  "isBanned":false
+  "address": "123 North Street, CA-0000"
+}
+
+###
+# POST /login
+POST http://localhost:3010/api/v1/auth/login HTTP/1.1
+Content-Type: application/json
+
+{
+  "email": "khan123@email.com",
+  "password": "123456"
 }
 
 ###
 # GET /users
-GET http://localhost:3000/api/v1/users HTTP/1.1
+GET http://localhost:3010/api/v1/users HTTP/1.1
 
 ###
 # GET /users/:userId
-GET http://localhost:3000/api/v1/users/61a004293afa253bf69c220c HTTP/1.1
+GET http://localhost:3010/api/v1/users/61ae64825622facdeadbf1ca HTTP/1.1
 
 ###
 # PUT /users/register
-PUT http://localhost:3000/api/v1/users/61a004293afa253bf69c220c HTTP/1.1
+PUT http://localhost:3010/api/v1/users/61a004293afa253bf69c220c HTTP/1.1
 Content-Type: application/json
 
 {
@@ -85,14 +92,13 @@ Content-Type: application/json
 
 ###
 # DELETE /users/register
-DELETE  http://localhost:3000/api/v1/users/61a004293afa253bf69c220c HTTP/1.1
-
+DELETE  http://localhost:3010/api/v1/users/61a004293afa253bf69c220c HTTP/1.1
 
 ###
 # Cart CRUD OPERATION #
 
 # POST /cart
-POST http://localhost:3000/api/v1/carts/ HTTP/1.1
+POST http://localhost:3010/api/v1/carts/ HTTP/1.1
 Content-Type: application/json
 
 {
@@ -107,15 +113,15 @@ Content-Type: application/json
 
 ###
 #GET /carts
-GET http://localhost:3000/api/v1/carts HTTP/1.1
+GET http://localhost:3010/api/v1/carts HTTP/1.1
 
 ###
 #GET /:cartId
-GET http://localhost:3000/api/v1/carts/61a828ffd0242e1ecf55350a HTTP/1.1
+GET http://localhost:3010/api/v1/carts/61a828ffd0242e1ecf55350a HTTP/1.1
 
 ###
 # PUT /:cartId
-PUT http://localhost:3000/api/v1/carts/61a828ffd0242e1ecf55350a HTTP/1.1
+PUT http://localhost:3010/api/v1/carts/61a828ffd0242e1ecf55350a HTTP/1.1
 Content-Type: application/json
 # could not update withoutt the userId
 {
@@ -134,14 +140,14 @@ Content-Type: application/json
 
 ###
 # DELETE /:productId
-DELETE http://localhost:3000/api/v1/carts/61a828ffd0242e1ecf55350a
+DELETE http://localhost:3010/api/v1/carts/61a828ffd0242e1ecf55350a
 
 
 ###
 # Order CRUD OPERATION #
 
 # POST /orders
-POST http://localhost:3000/api/v1/orders/ HTTP/1.1
+POST http://localhost:3010/api/v1/orders/ HTTP/1.1
 Content-Type: application/json
 
 {
@@ -157,15 +163,15 @@ Content-Type: application/json
 
 ###
 #GET /orders
-GET http://localhost:3000/api/v1/orders HTTP/1.1
+GET http://localhost:3010/api/v1/orders HTTP/1.1
 
 ###
 #GET /:orderId
-GET http://localhost:3000/api/v1/orders/61a83bdba5e91b3975084111 HTTP/1.1
+GET http://localhost:3010/api/v1/orders/61a83bdba5e91b3975084111 HTTP/1.1
 
 ###
 # PUT /:orderId
-PUT http://localhost:3000/api/v1/orders/61a83bdba5e91b3975084111 HTTP/1.1
+PUT http://localhost:3010/api/v1/orders/61a83bdba5e91b3975084111 HTTP/1.1
 Content-Type: application/json
 
 {
@@ -181,4 +187,4 @@ Content-Type: application/json
 
 ###
 # DELETE /:orderId
-DELETE http://localhost:3000/api/v1/orders/61a83bdba5e91b3975084111
+DELETE http://localhost:3010/api/v1/orders/61a83bdba5e91b3975084111

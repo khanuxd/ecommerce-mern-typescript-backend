@@ -1,47 +1,8 @@
 import { Request, Response, NextFunction } from 'express'
-// import bcrypt from 'bcrypt'
 
-import User from '../models/User.js'
+// import User from '../models/User.js'
 import UserService from '../services/user.js'
 import { BadRequestError } from '../helpers/apiError'
-
-// POST /register
-export const addNewUser = async (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
-  try {
-    const { name, email, password, avatar, address, isAdmin, isBanned } =
-      req.body
-
-    const user = new User({
-      name,
-      email,
-      password,
-      avatar,
-      address,
-      isAdmin,
-      isBanned,
-    })
-
-    // if (!name || !email || !password) {
-    //   res.status(400).json({
-    //     msg: 'Please enter required filelds',
-    //   })
-    // }
-
-    await UserService.newUser(user)
-
-    res.status(201).json(user)
-  } catch (error) {
-    if (error instanceof Error && error.name == 'ValidationError') {
-      next(new BadRequestError('Invalid Request', error))
-    } else {
-      next(error)
-    }
-  }
-}
 
 // GET /users
 export const findAllUsers = async (

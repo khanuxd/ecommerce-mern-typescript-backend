@@ -1,5 +1,5 @@
 import express from 'express'
-
+import { isLoggedIn } from '../controllers/verifyToken'
 import {
   addNewOrder,
   findAllOrders,
@@ -11,10 +11,16 @@ import {
 const router = express.Router()
 
 // Every path we define here will get /api/v1 prefix
-router.get('/', findAllOrders)
-router.get('/:orderId', findOrderById)
-router.post('/', addNewOrder)
-router.put('/:orderId', updateOrder)
-router.delete('/:orderId', removeOrder)
+router.get('/', isLoggedIn, findAllOrders)
+router.get('/:orderId', isLoggedIn, findOrderById)
+router.post('/', isLoggedIn, addNewOrder)
+router.put('/:orderId', isLoggedIn, updateOrder)
+router.delete('/:orderId', isLoggedIn, removeOrder)
 
 export default router
+
+/**
+ * To be done
+ *
+ * find all orders by user id
+ */

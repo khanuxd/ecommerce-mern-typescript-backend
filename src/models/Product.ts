@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/member-delimiter-style */
 import mongoose, { Document } from 'mongoose'
+import mongooseUniqueValidator from 'mongoose-unique-validator'
 
 export type ProductDocument = Document & {
   title: string
@@ -19,7 +20,7 @@ const productSchema = new mongoose.Schema(
       index: true,
       trim: true,
       required: [true, 'Title is required'],
-      unique: [true, 'Title should be different from others'],
+      unique: true,
       minlength: 10,
       maxlength: 40,
     },
@@ -53,5 +54,9 @@ const productSchema = new mongoose.Schema(
     timestamps: true,
   }
 )
+
+productSchema.plugin(mongooseUniqueValidator, {
+  message: 'product title is already taken',
+})
 
 export default mongoose.model<ProductDocument>('Product', productSchema)

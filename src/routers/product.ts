@@ -1,4 +1,5 @@
 import express from 'express'
+import { isLoggedIn, isUserAdmin } from '../controllers/verifyToken'
 
 import {
   addNewProduct,
@@ -13,8 +14,8 @@ const router = express.Router()
 // Every path we define here will get /api/v1 prefix
 router.get('/', findAllProducts)
 router.get('/:productId', findProductById)
-router.post('/', addNewProduct)
-router.put('/:productId', updateProduct)
-router.delete('/:productId', removeProduct)
+router.post('/', isLoggedIn, isUserAdmin, addNewProduct)
+router.put('/:productId', isLoggedIn, isUserAdmin, updateProduct)
+router.delete('/:productId', isLoggedIn, isUserAdmin, removeProduct)
 
 export default router
