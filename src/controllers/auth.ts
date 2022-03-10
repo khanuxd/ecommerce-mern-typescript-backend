@@ -50,8 +50,8 @@ export const authenticateUser = async (
     const { email, password } = req.body
     const user = await AuthService.authUser(email)
 
-    //
-    const userToken = { email: email, id: user._id } // generate a token after succesful login, but will not save anywhere for security purpose
+    // generate a token after succesful login, but will not save anywhere for security purpose
+    const userToken = { email: email, id: user._id }
     const accessToken = jwt.sign(userToken, JWT_SECRET)
     const bannedUser = user.isBanned
 
@@ -60,14 +60,6 @@ export const authenticateUser = async (
         message: 'Please enter all required filelds',
       })
     }
-
-    /* 
-     if (!user || !correctPassword) {
-      res.status(400).json({
-        message: 'wrong',
-      })
-    }
-    */
 
     const correctPassword =
       user === null ? false : await bcrypt.compare(password, user.password)

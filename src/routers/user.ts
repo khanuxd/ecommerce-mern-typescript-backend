@@ -17,9 +17,3 @@ router.put('/:userId', isLoggedIn, updateUser)
 router.delete('/:userId', removeUser)
 
 export default router
-
-/**
- * To be done
- *
- * ban a user by admin
- */
